@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LabMentra AI: Smart Virtual Laboratory with AI Assistance</title>
+  
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon"><i class="fas fa-atom"></i></div>
+        <div class="brand-title">LabMentra <span>AI</span></div>
+      </div>
+
+      <ul class="nav-menu">
+        <li class="nav-item active">
+          <button data-view="dashboard"><i class="fas fa-th-large"></i> Lab Dashboard</button>
+        </li>
+        <li class="nav-item">
+          <button data-view="workbench"><i class="fas fa-flask"></i> Lab Workbench</button>
+        </li>
+        <li class="nav-item">
+          <button data-view="analytics"><i class="fas fa-chart-pie"></i> Learning Analytics</button>
+        </li>
+        <li class="nav-item">
+          <button data-view="mastery"><i class="fas fa-brain"></i> Concept Mastery</button>
+        </li>
+        <li class="nav-item">
+          <button data-view="recommendations"><i class="fas fa-lightbulb"></i> AI Recommendations</button>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div class="student-badge">
+          <div class="avatar">AR</div>
+          <div class="student-info">
+            <h4>Alex Rivera</h4>
+            <p>ID: LM-2026-889</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Body -->
+    <main class="main-content">
+      <!-- Top Header Navbar -->
+      <header class="top-header">
+        <div class="header-title">
+          <h2 id="header-title-text">Lab Dashboard & Interactive Experiments</h2>
+        </div>
+
+        <div class="header-controls">
+          <!-- Adaptive Difficulty Selector -->
+          <div class="difficulty-selector">
+            <button class="difficulty-btn active" data-diff="Novice"><i class="fas fa-seedling"></i> Novice</button>
+            <button class="difficulty-btn" data-diff="Intermediate"><i class="fas fa-balance-scale"></i> Intermediate</button>
+            <button class="difficulty-btn" data-diff="Advanced"><i class="fas fa-fire"></i> Advanced</button>
+          </div>
+
+          <!-- Dark/Light Theme Toggle -->
+          <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- View Containers -->
+      <div class="view-container">
+        <!-- View 1: Lab Dashboard -->
+        <div class="view-page active" id="view-dashboard">
+          <div style="margin-bottom: 24px;">
+            <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 6px;">Smart Virtual Laboratory</h3>
+            <p style="color: var(--text-muted); font-size: 14px;">Perform interactive virtual experiments with real-time AI guidance, action-based error detection, root-cause diagnostics, and what-if sandbox mode.</p>
+          </div>
+
+          <div class="grid-cards" id="experiment-cards-grid">
+            <!-- Experiments rendered dynamically by JS -->
+          </div>
+        </div>
+
+        <!-- View 2: Virtual Lab Workbench -->
+        <div class="view-page" id="view-workbench">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 16px;">
+            <h3 id="workbench-exp-title" style="font-size: 18px; font-weight: 700;">Virtual Lab Workbench</h3>
+            <div style="display:flex; gap:10px;">
+              <button class="btn btn-outline" onclick="uiController.openReplayModal()"><i class="fas fa-history"></i> Replay Session</button>
+              <button class="btn btn-outline" onclick="uiController.openWhatIfModal()"><i class="fas fa-sliders-h"></i> What-If Sandbox</button>
+            </div>
+          </div>
+
+          <div class="workbench-grid">
+            <!-- Equipment Canvas Visualizer -->
+            <div class="lab-canvas-container">
+              <div class="canvas-header">
+                <span class="badge badge-success"><i class="fas fa-circle" style="font-size:8px;"></i> Live Interactive Simulation</span>
+                <span style="font-size: 12px; color: var(--text-muted);" id="workbench-step-indicator">Step 1 of Procedure</span>
+              </div>
+              
+              <div class="visualizer-stage" id="visualizer-stage-area">
+                <!-- Visualizer rendered dynamically by UIController -->
+              </div>
+            </div>
+
+            <!-- Interactive Control Panel & AI Assistant -->
+            <div class="control-panel">
+              <div class="ai-guidance-box">
+                <div class="ai-guidance-title" id="ai-guidance-mode-title">
+                  <i class="fas fa-robot"></i> LabMentra AI [Guided Assistant]
+                </div>
+                <div class="ai-guidance-text" id="ai-guidance-text-content">
+                  Select equipment actions to begin procedure.
+                </div>
+              </div>
+
+              <div id="workbench-controls-container">
+                <!-- Controls rendered dynamically per experiment -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 3: Learning Analytics -->
+        <div class="view-page" id="view-analytics">
+          <div class="grid-cards" style="grid-template-columns: 1fr 1fr; margin-bottom: 20px;">
+            <div class="card" style="height: 320px;">
+              <h4 style="margin-bottom: 15px;">🕸️ Multi-Disciplinary Concept Mastery Radar</h4>
+              <div style="position: relative; height: 240px;">
+                <canvas id="radar-chart-canvas"></canvas>
+              </div>
+            </div>
+
+            <div class="card" style="height: 320px;">
+              <h4 style="margin-bottom: 15px;">📈 Accuracy & Performance Trend</h4>
+              <div style="position: relative; height: 240px;">
+                <canvas id="line-chart-canvas"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="height: 300px;">
+            <h4 style="margin-bottom: 15px;">⚠️ Common Error Category Distribution</h4>
+            <div style="position: relative; height: 220px;">
+              <canvas id="doughnut-chart-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 4: Concept Mastery Matrix -->
+        <div class="view-page" id="view-mastery">
+          <div class="grid-cards" id="concept-matrix-container">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- View 5: AI Recommendations -->
+        <div class="view-page" id="view-recommendations">
+          <div id="recommendations-container">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal 1: Action-Based Error & Root-Cause Diagnostic Modal -->
+  <div class="modal-backdrop" id="diagnostic-modal-backdrop">
+    <div class="modal-content" style="border-left: 6px solid var(--danger);">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:15px;">
+        <h3 id="diag-title" style="color:var(--danger); font-size:18px;">Action-Based Error Detected</h3>
+        <button class="btn btn-outline" onclick="uiController.closeDiagnosticModal()" style="padding:4px 10px;">✕</button>
+      </div>
+      
+      <div style="margin-bottom:15px;">
+        <h5 style="color:var(--text-muted); font-size:12px; text-transform:uppercase;">Observed Outcome</h5>
+        <p id="diag-obs" style="font-weight:600; font-size:14px; margin-top:4px;"></p>
+      </div>
+
+      <div style="margin-bottom:15px; background:var(--danger-light); padding:15px; border-radius:var(--radius-md);">
+        <h5 style="color:#9f1239; font-size:12px; text-transform:uppercase; font-weight:bold;">🔬 Scientific Root Cause</h5>
+        <p id="diag-principle" style="font-size:13px; color:#9f1239; margin-top:4px;"></p>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <h5 style="color:var(--text-muted); font-size:12px; text-transform:uppercase;">Remediation Strategy</h5>
+        <p id="diag-remedy" style="font-size:13px; margin-top:4px;"></p>
+      </div>
+
+      <button class="btn btn-danger" style="width:100%;" onclick="uiController.closeDiagnosticModal()">Acknowledge & Adjust Strategy</button>
+    </div>
+  </div>
+
+  <!-- Modal 2: Replay Engine Scrubber Modal -->
+  <div class="modal-backdrop" id="replay-modal-backdrop">
+    <div class="modal-content" style="max-width:700px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+        <h3>⏪ Interactive Session Replay Engine</h3>
+        <button class="btn btn-outline" onclick="uiController.closeReplayModal()">✕</button>
+      </div>
+
+      <div id="replay-step-info" class="card" style="padding:15px; margin-bottom:15px; background:var(--bg-main);">
+        Step details loading...
+      </div>
+
+      <div class="replay-scrubber-bar">
+        <button class="btn btn-primary" onclick="uiController.toggleReplayPlay()"><i class="fas fa-play"></i> Play / Pause</button>
+        <input type="range" min="0" max="10" value="0" class="scrubber-slider" id="replay-scrubber-input" oninput="replayEngine.seekTo(parseInt(this.value)); uiController.updateReplayUI(replayEngine.getCurrentStep(), parseInt(this.value), replayEngine.getTotalSteps());">
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: What-If Sandbox Simulator Modal -->
+  <div class="modal-backdrop" id="whatif-modal-backdrop">
+    <div class="modal-content">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+        <h3>🧪 What-If Simulation Sandbox</h3>
+        <button class="btn btn-outline" onclick="uiController.closeWhatIfModal()">✕</button>
+      </div>
+
+      <p style="font-size:13px; color:var(--text-muted); margin-bottom:15px;">Tweak baseline experiment parameters to model hypothetical physical and chemical outcomes.</p>
+
+      <div id="whatif-controls-container" style="margin-bottom:20px;">
+        <!-- Dynamic sliders -->
+      </div>
+
+      <div id="whatif-results-output">
+        <!-- Results -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Application Scripts -->
+  <script src="js/data/concepts.js"></script>
+  <script src="js/data/experiments.js"></script>
+  <script src="js/engine/audioEngine.js"></script>
+  <script src="js/engine/aiAdvisor.js"></script>
+  <script src="js/engine/replayEngine.js"></script>
+  <script src="js/engine/whatIfEngine.js"></script>
+  <script src="js/engine/labReportGenerator.js"></script>
+  <script src="js/engine/analyticsEngine.js"></script>
+  <script src="js/engine/labEngine.js"></script>
+  <script src="js/ui/uiController.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
