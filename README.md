@@ -1,8 +1,8 @@
-🧪 LabMentra AI – Smart Virtual Laboratory with AI Assistance
+#🧪 LabMentra AI – Smart Virtual Laboratory with AI Assistance
 
 An Intelligent Digital Learning Environment for Interactive Laboratory Education
 
-📌 Project Overview
+#📌 Project Overview
 
 LabMentra AI is an AI-assisted virtual laboratory platform designed to transform traditional practical learning into an interactive and accessible digital experience.
 
@@ -10,7 +10,7 @@ The platform provides students with a virtual environment to explore laboratory 
 
 By combining virtual laboratory experiences with intelligent educational support, LabMentra AI aims to reduce barriers to practical education and make laboratory learning more engaging, flexible, and accessible.
 
-🎯 Problem Statement
+#🎯 Problem Statement
 
 Traditional laboratory education often faces challenges such as:
 
@@ -23,13 +23,13 @@ Traditional laboratory education often faces challenges such as:
 
 These challenges can affect students' practical understanding and learning experience.
 
-💡 Proposed Solution
+#💡 Proposed Solution
 
 LabMentra AI addresses these challenges by providing a digital laboratory environment where students can explore experiments, learn concepts, and receive intelligent assistance.
 
 The platform supports self-paced learning and provides an alternative way to understand laboratory procedures before performing experiments in a physical laboratory.
 
-✨ Key Features
+#✨ Key Features
 
 - Virtual Laboratory Environment: Provides a digital space for students to explore laboratory-based learning activities.
 - AI-Assisted Learning: Integrates intelligent assistance to support students in understanding laboratory concepts.
@@ -38,14 +38,14 @@ The platform supports self-paced learning and provides an alternative way to und
 - Self-Paced Learning: Allows students to learn and revisit concepts according to their individual learning pace.
 - Practical Knowledge Enhancement: Supports the development of conceptual understanding and experimental awareness.
 
-🛠️ Technologies Used
+#🛠️ Technologies Used
 
 - HTML5 – Structure of the web application.
 - CSS3 – Styling and responsive user interface.
 - JavaScript – Interactive functionality and client-side logic.
 - AI Integration – Intelligent educational assistance.
 
-🏗️ System Architecture
+#🏗️ System Architecture
 
 The platform follows a web-based architecture consisting of:
 
@@ -54,7 +54,7 @@ The platform follows a web-based architecture consisting of:
 3. AI Assistance Layer: Supports intelligent learning interactions.
 4. Learning Environment: Provides access to virtual laboratory content and educational activities.
 
-🎓 Educational Impact
+#🎓 Educational Impact
 
 LabMentra AI aims to:
 
@@ -64,7 +64,7 @@ LabMentra AI aims to:
 - Support preparation for physical laboratory sessions.
 - Promote technology-driven education.
 
-🚀 Future Enhancements
+#🚀 Future Enhancements
 
 - Integration of more interactive laboratory simulations.
 - Real-time experiment monitoring and feedback.
@@ -74,7 +74,7 @@ LabMentra AI aims to:
 - Virtual experiment assessment and evaluation.
 - Expanded support for multiple academic disciplines.
 
-🔮 Future Scope
+#🔮 Future Scope
 
 LabMentra AI can be extended into a comprehensive digital laboratory ecosystem supporting engineering, science, and technology education. Integration with advanced simulation engines, AI tutoring systems, and virtual reality technologies could further enhance its capabilities.
 
